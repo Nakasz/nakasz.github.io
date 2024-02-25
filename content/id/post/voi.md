@@ -1,7 +1,7 @@
 ---
 author: Naka Rhythm
 title: Voi Network Node
-date: 2024-02-26    
+date: 2024-02-26
 thumbnail:
     src: 'images/12.jpeg'
     alt: 'voi'

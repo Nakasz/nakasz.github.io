@@ -1,4 +1,4 @@
-title = "Stuckode"
+title = "Stuckcode"
 theme = "heyo"
 baseURL = "/"
 languageCode = "en"
@@ -22,14 +22,15 @@ paginate = 10
     weight = 1
     LanguageName = "en"
 
-  [Languages.pt-br]
-    contentDir = "content/pt-br"
+  [Languages.id]
+    contentDir = "content/id"
     weight = 2
-    LanguageName = "pt-br"
+    LanguageName = "id"
+    
 
 [params.author]
-  name = "Jane Doe"
-  email = "jane@doe.com"
+  name = "Naka Rhythm"
+  email = "0xnaka@duck.com"
 
 [params]
   title = "I'm Naka Rhythm"
@@ -48,13 +49,13 @@ paginate = 10
 # you can also enable or disable it per page
 [params.sketch] 
   enable = true 
-  displayOptions = true
+  displayOptions = false
   # Graph, Digital Rain, or Circles
   use = "Digital Rain"
   # JSON that is passed to the sketch constructor
   # You can check all the possible configurations in
   startingConfig = """{
-    "kind": "katakana",
+    "kind": "random",
     "nStreams": 10
   }"""
 
@@ -75,7 +76,7 @@ url = "https://linkedin.com/"
 [[params.socialIcons]]
 icon = "fab fa-github"
 title = "GitHub"
-url = "https://github.com"
+url = "https://github.com/Nakasz"
 
 [[params.socialIcons]]
 icon = "fab fa-instagram"
@@ -107,20 +108,20 @@ weight = 300
 identifier = "about"
 url = "/about/"
 
-[[Languages.pt-br.menu.main]]
-name = "Home"
+[[Languages.id.menu.main]]
+name = "Beranda"
 identifier = "home"
 weight = 100
-url = "/pt-br/"
+url = "/id/"
 
-[[Languages.pt-br.menu.main]]
+[[Languages.id.menu.main]]
 name = "Blog"
 weight = 200
 identifier = "posts"
 url = "/post/"
 
-[[Languages.pt-br.menu.main]]
-name = "Sobre"
+[[Languages.id.menu.main]]
+name = "Tentang"
 weight = 300
 identifier = "about"
 url = "/about/"

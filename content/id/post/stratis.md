@@ -3,9 +3,9 @@ author: Naka Rhythm
 title: Stratis EVM Validator node
 date: 2024-02-25
 tags: 
-    - theme
+    - stratis
 categories:
-    - heyo
+    - node
 showToc: true
 ---
 

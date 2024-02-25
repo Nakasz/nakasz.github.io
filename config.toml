@@ -1,12 +1,13 @@
 title = "Stuckcode"
 theme = "heyo"
 baseURL = "/"
-languageCode = "en"
-DefaultContentLanguage = "en"
+languageCode = "id"
+DefaultContentLanguage = "id"
 summarylength = 100
 enableEmoji = true
 enableRobotsTXT = true
 paginate = 10
+timeZone = "Asia/Jakarta"
 
 # Disqus comments
 # https://gohugo.io/templates/internal/#configure-disqus

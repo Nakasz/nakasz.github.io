@@ -1,15 +1,15 @@
 ---
 author: Naka Rhythm
 title: Voi Network Node
-date: 2024-02-25
+date: 2024-02-26    
 thumbnail:
     src: 'images/12.jpeg'
-    alt: 'Stratis'
+    alt: 'voi'
     object_position: '50% 100%'
     height: 600px
 images: ['images/12.jpeg']
 tags: 
-    - stratis
+    - voi
 categories:
     - node
 showToc: true
@@ -99,6 +99,8 @@ Selengkapnya kalian bisa baca [di sini](https://voinetwork.github.io/voi-swarm/i
 # Tamat
 
 jika ada yg mau ditanyakan, silahkan kalian bertanya di replyku atau di discord voi [join here](https://discord.gg/voi-network-1055863853633785857)
+
+NB: [Voi Checker](https://github.com/crypto-morph/voi-checker/tree/v2)
 
 {{< callout 
     title="Research"

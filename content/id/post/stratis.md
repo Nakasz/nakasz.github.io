@@ -2,6 +2,12 @@
 author: Naka Rhythm
 title: Stratis EVM Validator node
 date: 2024-02-25
+thumbnail:
+    src: 'images/post1.jpg'
+    alt: 'Stratis'
+    object_position: '50% 100%'
+    height: 700px
+images: ['images/post1.jpg']
 tags: 
     - stratis
 categories:
@@ -11,7 +17,7 @@ showToc: true
 
 Di artikel kali ini ak mau berbagi tutor bagaimana menjalankan node validator Stratis
 
-# **Gambaran Program**
+# Gambaran Program
 
 Dalam rangka perayaan peluncuran Testnet Stratis Auroria, Stratis menawarkan dua kampanye yang menawarkan peserta bagian dari hadiah sebesar 1.000.000 STRAX (StratisEVM).
 
@@ -30,9 +36,9 @@ Staking bukan hanya tentang memegang token; ini tentang berpartisipasi aktif dal
 **Terlibat dengan Komunitas**
 Komunitas Stratis adalah ekosistem yang hidup dari para penggemar blockchain, pengembang, dan inovator. Terlibat dengan komunitas Stratis melalui media sosial dan Server Discord resmi dapat meningkatkan pengalaman Anda dan memberikan wawasan berharga tentang apa yang akan datang untuk Stratis dan perjalanannya dengan StratisEVM.
 
-Informasi lebih lanjut tentang program insentif:[klik](https://www.stratisplatform.com/2024/02/07/500k-strax-airdrop-staking-quick-start-guide/)
+Informasi lebih lanjut tentang program insentif: [klik](https://www.stratisplatform.com/2024/02/07/500k-strax-airdrop-staking-quick-start-guide/)
 
-# **Apa yang dibutuhkan?**
+# Apa yang dibutuhkan?
 
 pertama kalian butuh spek vps minimal seperti di bawah, bisa beli di Digital ocean ataupun Contabo.
 
@@ -46,16 +52,16 @@ pertama kalian butuh spek vps minimal seperti di bawah, bisa beli di Digital oce
 
 lalu 20,000 STRAX Testnet dan akun tesnet
 
-# **Langsung gas wae sam**
+# Langsung gas wae sam
 
-###### **Install dependensi**
+**Install dependensi**
 
 ```toml
 sudo apt update && sudo apt upgrade -y
 sudo apt install git build-essential curl jq wget tar ufw -y
 ```
 
-###### **konfigurasi port**
+ **konfigurasi port**
 
 ```toml
 sudo ufw allow ssh
@@ -69,7 +75,7 @@ sudo ufw enable
 sudo ufw reload
 ```
 
-###### **install golang**
+**install golang**
 
 ```toml
 VER="1.21.5"
@@ -81,16 +87,16 @@ rm "go$VER.linux-amd64.tar.gz"
 echo "export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin" >> ~/.bash_profile
 source ~/.bash_profile
 ```
-###### **buat ~/go/bin dir**
+**buat ~/go/bin dir**
 
 ```toml
 cd $HOME
 mkdir -p go/bin
 ```
 
-# **konfigurasi dan eksekusi klient (geth)**
+# konfigurasi dan eksekusi klient (geth)
 
-###### **get geth**
+**get geth**
 
 ```toml
 cd $HOME &&\
@@ -100,7 +106,7 @@ rm -r geth-linux-amd64-5c4504c.tar.gz &&\
 mv ./geth ./go/bin
 ```
 
-###### **buat file servis geth**
+**buat file servis geth**
 
 ```toml
 sudo tee /etc/systemd/system/geth.service > /dev/null <<EOF
@@ -120,7 +126,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-###### **Start geth**
+**Start geth**
 
 ```toml
 sudo systemctl daemon-reload
@@ -129,9 +135,9 @@ sudo systemctl restart geth
 journalctl -fu geth -o cat
 ```
 
-# **konfigurasi Beacon Client**
+# konfigurasi Beacon Client
 
-###### **Get beacon-chain**
+**Get beacon-chain**
 
 ```toml
 cd $HOME
@@ -141,7 +147,7 @@ rm -r beacon-chain-linux-amd64-0ebd251.tar.gz
 mv ./beacon-chain ~/go/bin
 ```
 
-###### **buat file servis**
+**buat file servis**
 
 ```toml
 tee /etc/systemd/system/beacon-chain.service > /dev/null <<EOF
@@ -161,7 +167,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-###### **Run beacon**
+**Run beacon**
 
 ```toml
 sudo systemctl daemon-reload
@@ -170,9 +176,9 @@ sudo systemctl restart beacon-chain
 journalctl -fu beacon-chain -o cat
 ```
 
-# **Buat Keys and Import**
+# Buat Keys and Import
 
-###### [goto](https://auroria.launchpad.stratisevm.com/en/overview)
+[goto](https://auroria.launchpad.stratisevm.com/en/overview)
 
 {{< callout 
     title="Research"
@@ -181,7 +187,7 @@ journalctl -fu beacon-chain -o cat
     color="linear-gradient(95deg, #9198e5, #e66465)"
 >}}
 
-###### **Get Deposit CLI**
+**Get Deposit CLI**
 
 ```toml
 cd $HOME &&\
@@ -191,7 +197,7 @@ tar -C ~/go/bin -xzf staking-deposit-cli-linux-amd64/staking-deposit-cli-linux-a
 rm -rf staking-deposit-cli-linux-amd64 staking-deposit-cli-linux-amd64.zip
 ```
 
-###### **Generate keys and deposit-data**
+**Generate keys and deposit-data**
 
 {{< callout 
     title="Research"
@@ -206,7 +212,7 @@ deposit new-mnemonic --num_validators 1 --chain auroria --eth1_withdrawal_addres
 
 nanti diminta buat password dan pastikan copas phrase.
 
-###### **Get Validator CLI**
+**Get Validator CLI**
 
 ```toml
 cd $HOME &&\
@@ -216,13 +222,13 @@ rm -rf validator-linux-amd64-0ebd251.tar.gz &&\
 mv ./validator ~/go/bin 
 ```
 
-###### **Import validator key**
+**Import validator key**
 
 ```toml
 validator accounts import --keys-dir=/home/stratis/validator_keys/keystore-m*.json --auroria
 ```
 
-###### **Ikuti**
+**Ikuti**
 
 ```toml
 Enter a wallet directory (default: /home/stratis/.eth2validators/prysm-wallet-v2):
@@ -231,28 +237,28 @@ Enter a wallet directory (default: /home/stratis/.eth2validators/prysm-wallet-v2
 
 Download or copy your validator_keys folder to local.
 
-# **Deposit**
+# Deposit
 
-[^1]: [Claim testnet token](https://auroria.faucet.stratisevm.com/)
-[^2]: [Click continue on](https://auroria.launchpad.stratisevm.com/en/generate-keys)
-[^3]: Upload deposit deposit_data-xxx.json
-[^4]: Connect wallet,Click Continue and Confirm tx.
-[^5]: [Check tx hash](https://auroria.beacon.stratisevm.com/tx/[tx_hash]#overview)
+1. [Claim testnet token](https://auroria.faucet.stratisevm.com/)
+2. [Click continue on](https://auroria.launchpad.stratisevm.com/en/generate-keys)
+3. Upload deposit deposit_data-xxx.json
+4. Connect wallet,Click Continue and Confirm tx.
+5. [Check tx hash](https://auroria.beacon.stratisevm.com/tx/[tx_hash]#overview)
 
-# **Check deposit progress**
+# Check deposit progress
 
-###### Check your pubkey
+**Check your pubkey**
 
 ```toml
 cat ./validator_keys/deposit* | jq '.[].pubkey'
 ```
 
-###### Track progress deposit
+**Track progress deposit**
 [Go to](https://auroria.beacon.stratisevm.com/validator/[YOUR_PUBKEY])
 
-# **Run validator*
+# Run validator
 
-###### [^1]:Create password file
+1. Create password file
 {{< callout 
     title="Research"
     content="Change “YOUR_WALLET_PASSWORD” with your password"
@@ -264,7 +270,7 @@ cat ./validator_keys/deposit* | jq '.[].pubkey'
 echo "YOUR_WALLET_PASSWORD" >> ./validator_keys/pwd.txt
 ```
 
-###### [^2]: Create service file
+2.Create service file
 
 {{< callout 
     title="Research"
@@ -291,7 +297,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-###### [^3]:Run validator
+3. Run validator
 
 ```toml
 sudo systemctl daemon-reload
@@ -300,7 +306,7 @@ sudo systemctl restart validator
 journalctl -fu validator -o cat
 ```
 
-# **Validator Active**
+# Validator Active
 
 Be sure to keep your node validator running.
 
